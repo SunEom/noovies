@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
-import { Image, View } from 'react-native';
+import { Image, StatusBar, View } from 'react-native';
 import { Asset } from 'expo-asset';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,9 +30,12 @@ export default function App() {
   };
   const onFinish = () => setIsReady(true);
   return isReady ? (
-    <NavigationContainer>
-      <Stack />
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack />
+      </NavigationContainer>
+      <StatusBar barStyle="light-content" />
+    </>
   ) : (
     <AppLoading startAsync={loadAssets} onFinish={onFinish} onError={console.err} />
   );
