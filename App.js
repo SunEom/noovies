@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
-import { Image, Text } from 'react-native';
+import { Image, View } from 'react-native';
 import { Asset } from 'expo-asset';
+import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
+import Stack from './navigation/Stack';
+
 const cacheImages = (images) =>
   images.map((image) => {
     if (typeof image === 'string') {
@@ -26,5 +29,11 @@ export default function App() {
     return Promise.all([...images, ...fonts]);
   };
   const onFinish = () => setIsReady(true);
-  return isReady ? <Text>Ready?!!</Text> : <AppLoading startAsync={loadAssets} onFinish={onFinish} onError={console.err} />;
+  return isReady ? (
+    <NavigationContainer>
+      <Stack />
+    </NavigationContainer>
+  ) : (
+    <AppLoading startAsync={loadAssets} onFinish={onFinish} onError={console.err} />
+  );
 }
