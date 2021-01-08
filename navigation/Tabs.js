@@ -5,14 +5,16 @@ import Tv from '../screens/Tv';
 import Search from '../screens/Search';
 import Favs from '../screens/Favs';
 import { useLayoutEffect } from 'react';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const Tabs = createBottomTabNavigator();
 
 export default ({ navigation, route }) => {
-  const getHeaderName = (route) => route?.state?.routeNames[route.state.index];
+  const getHeaderName = (route) => getFocusedRouteNameFromRoute(route) || 'Movies';
 
   useLayoutEffect(() => {
-    navigation.setOptions({ title: getHeaderName(route) || 'Movies' });
+    const name = getHeaderName(route);
+    navigation.setOptions({ title: name });
   }, [route]);
 
   return (
