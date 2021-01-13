@@ -11,6 +11,7 @@ export default () => (
       headerStyle: {
         backgroundColor: 'black',
         borderBottomColor: 'black',
+        shadowColor: 'black',
       },
       headerTintColor: 'white',
       headerBackTitleVisible: false,
