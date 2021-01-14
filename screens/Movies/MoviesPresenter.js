@@ -9,34 +9,25 @@ import Horizontal from '../../components/Horizontal';
 import ScrollContainer from '../../components/ScorllContainer';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import List from '../../components/List';
-
-const { height: HEIGHT } = Dimensions.get('window');
-
-const SliderContainer = styled.View`
-  width: 100%;
-  height: ${HEIGHT / 4}px;
-  margin-bottom: 50px;
-`;
+import SwiperSlider from '../../components/SwiperSlider';
 
 const Container = styled.View``;
 
 export default ({ loading, nowPlaying, popular, upcoming }) => (
   <ScrollContainer loading={loading}>
-    <SliderContainer>
-      <Swiper controlsEnabled={false} loop timeout={3}>
-        {nowPlaying.map((movie) => (
-          <Slide
-            key={movie.id}
-            id={movie.id}
-            title={movie.original_title}
-            overview={movie.overview}
-            votes={movie.vote_average}
-            backgroundImage={movie.backdrop_path}
-            poster={movie.poster_path}
-          />
-        ))}
-      </Swiper>
-    </SliderContainer>
+    <SwiperSlider>
+      {nowPlaying.map((movie) => (
+        <Slide
+          key={movie.id}
+          id={movie.id}
+          title={movie.original_title}
+          overview={movie.overview}
+          votes={movie.vote_average}
+          backgroundImage={movie.backdrop_path}
+          poster={movie.poster_path}
+        />
+      ))}
+    </SwiperSlider>
     <Container>
       <HorizontalSlider title={'Popular Movies'}>
         {popular.map((movie) => (
