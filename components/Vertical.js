@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Poster from './Poster';
 import Votes from './Votes';
 import { TouchableOpacity } from 'react-native';
+import { trimText } from '../utils';
 
 const Container = styled.View`
   align-items: center;
@@ -20,7 +21,7 @@ const Vertical = ({ id, poster, title, votes }) => (
   <TouchableOpacity>
     <Container>
       <Poster url={poster} />
-      <Title>{title.length > 10 ? `${title.slice(0, 10)}...` : title}</Title>
+      <Title>{trimText(title, 10)}</Title>
       <Votes votes={votes} />
     </Container>
   </TouchableOpacity>
