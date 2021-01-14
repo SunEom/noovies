@@ -8,7 +8,7 @@ import ScrollContainer from '../../components/ScorllContainer';
 import SwiperSlider from '../../components/SwiperSlider';
 import Vertical from '../../components/Vertical';
 
-export default ({ loading, popular, topRated, today }) => (
+export default ({ loading, popular, topRated, today, thisWeek }) => (
   <ScrollContainer loading={loading}>
     <SwiperSlider>
       {popular.map((show) => (
@@ -23,9 +23,13 @@ export default ({ loading, popular, topRated, today }) => (
         />
       ))}
     </SwiperSlider>
-
     <HorizontalSlider title={'Top Rated'}>
       {topRated.map((show) => (
+        <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
+      ))}
+    </HorizontalSlider>
+    <HorizontalSlider title={'This Week'}>
+      {thisWeek.map((show) => (
         <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
       ))}
     </HorizontalSlider>
