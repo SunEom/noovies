@@ -7,10 +7,10 @@ import Title from '../../components/Title';
 import Vertical from '../../components/Vertical';
 import Horizontal from '../../components/Horizontal';
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get('window');
+const { height: HEIGHT } = Dimensions.get('window');
 
 const SliderContainer = styled.View`
-  width: ${WIDTH}px;
+  width: 100%;
   height: ${HEIGHT / 4}px;
   margin-bottom: 50px;
 `;
@@ -21,7 +21,6 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
   <ScrollView
     style={{ backgroundColor: 'black' }}
     contentContainerStyle={{
-      flex: 1,
       justifyContent: loading ? 'center' : 'flex-start',
     }}
   >
