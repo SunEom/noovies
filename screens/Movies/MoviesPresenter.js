@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Swiper from 'react-native-web-swiper';
-import { ActivityIndicator, Dimensions, ScrollView, View } from 'react-native/';
+import { Dimensions, ScrollView } from 'react-native/';
 import Slide from '../../components/Movies/Slide';
 import Title from '../../components/Title';
 import Vertical from '../../components/Vertical';
