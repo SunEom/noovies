@@ -58,7 +58,7 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
   <Container>
     <BG source={{ uri: apiImage(backgroundImage) }} />
     <Content>
-      <Poster url={apiImage(poster)} />
+      <Poster url={poster} />
       <Data>
         <Title>{title.length > 30 ? `${title.slice(0, 40)}...` : title}</Title>
         <VotesContainer>
