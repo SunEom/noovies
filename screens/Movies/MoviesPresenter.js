@@ -52,7 +52,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
             contentContainerStyle={{ paddingLeft: 20 }}
           >
             {popular.map((movie) => (
-              <Vertical key={movie.id} poster={movie.poster_path} title={movie.title} votes={movie.vote_average} />
+              <Vertical key={movie.id} id={movie.id} poster={movie.poster_path} title={movie.title} votes={movie.vote_average} />
             ))}
           </ScrollView>
           <Title title={'Coming Soon'} />
