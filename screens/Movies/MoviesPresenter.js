@@ -5,6 +5,7 @@ import { ActivityIndicator, Dimensions, ScrollView, View } from 'react-native/';
 import Slide from '../../components/Movies/Slide';
 import Title from '../../components/Title';
 import Vertical from '../../components/Vertical';
+import Horizontal from '../../components/Horizontal';
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window');
 
@@ -16,7 +17,7 @@ const SliderContainer = styled.View`
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying, popular }) => (
+export default ({ loading, nowPlaying, popular, upcoming }) => (
   <ScrollView
     style={{ backgroundColor: 'black' }}
     contentContainerStyle={{
@@ -46,7 +47,7 @@ export default ({ loading, nowPlaying, popular }) => (
         <Container>
           <Title title={'Popular Movies'} />
           <ScrollView
-            style={{ marginTop: 20 }}
+            style={{ marginTop: 20, marginBottom: 40 }}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ paddingLeft: 20 }}
@@ -55,6 +56,17 @@ export default ({ loading, nowPlaying, popular }) => (
               <Vertical key={movie.id} poster={movie.poster_path} title={movie.title} votes={movie.vote_average} />
             ))}
           </ScrollView>
+          <Title title={'Coming Soon'} />
+          {upcoming.map((movie) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              poster={movie.poster_path}
+              title={movie.title}
+              votes={movie.vote_average}
+              overview={movie.overview}
+            />
+          ))}
         </Container>
       </>
     )}
