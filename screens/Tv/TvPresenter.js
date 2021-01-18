@@ -10,8 +10,8 @@ import Vertical from '../../components/Vertical';
 
 const Container = styled.View``;
 
-export default ({ loading, popular, topRated, today, thisWeek }) => (
-  <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, popular, topRated, today, thisWeek }) => (
+  <ScrollContainer refreshFn={refreshFn} loading={loading}>
     <SwiperSlider>
       {popular.map((show) => (
         <Slide
