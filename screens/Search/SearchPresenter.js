@@ -13,15 +13,19 @@ const Text = styled.Text``;
 export default ({ movies, shows, onChange, keyword, onSubmit }) => (
   <Container>
     <Input placeholder={'Write a keyword'} onChange={onChange} value={keyword} onSubmit={onSubmit}></Input>
-    <HorizontalSlider title={'Movie results'}>
-      {movies.map((movie) => (
-        <Vertical key={movie.id} id={movie.id} poster={movie.poster_path} title={movie.title} overview={movie.overview} />
-      ))}
-    </HorizontalSlider>
-    <HorizontalSlider title={'TV results'}>
-      {shows.map((show) => (
-        <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} overview={show.overview} />
-      ))}
-    </HorizontalSlider>
+    {movies.length !== 0 && (
+      <HorizontalSlider title={'Movie results'}>
+        {movies.map((movie) => (
+          <Vertical key={movie.id} id={movie.id} poster={movie.poster_path} title={movie.title} overview={movie.overview} />
+        ))}
+      </HorizontalSlider>
+    )}
+    {shows.length !== 0 && (
+      <HorizontalSlider title={'TV results'}>
+        {shows.map((show) => (
+          <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} overview={show.overview} />
+        ))}
+      </HorizontalSlider>
+    )}
   </Container>
 );
