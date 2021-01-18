@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import Horizontal from '../../components/Horizontal';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import Input from '../../components/Search/Input';
 import Vertical from '../../components/Vertical';
