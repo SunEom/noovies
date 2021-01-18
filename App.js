@@ -22,6 +22,7 @@ export default function App() {
   const [isReady, setIsReady] = useState(false);
   const loadAssets = () => {
     const images = cacheImages([
+      'https://images.unsplash.com/photo-1545164630-64ccc5195afb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
       'https://images.unsplash.com/photo-1606851682541-2c947e1ddc9b?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       require('./assets/splash.png'),
     ]);
