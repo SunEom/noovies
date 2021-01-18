@@ -35,6 +35,7 @@ const ScrollContainer = ({ refreshFn, loading, children }) => {
 ScrollContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  refreshFn: PropTypes.func,
 };
 
 export default ScrollContainer;
