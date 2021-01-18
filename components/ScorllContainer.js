@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Dimensions, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Dimensions, RefreshControl, ScrollView, View } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 
@@ -12,6 +12,7 @@ const HEIGHT = Dimensions.get('screen').height / 2;
 const ScrollContainer = ({ loading, children }) => (
   <Container>
     <ScrollView
+      refreshControl={<RefreshControl tintColor={'white'} />}
       style={{ backgroundColor: 'black' }}
       contentContainerStyle={{
         justifyContent: loading ? 'center' : 'flex-start',
