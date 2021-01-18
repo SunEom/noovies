@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 const TextInput = styled.TextInput`
   background-color: white;
+  margin: 10px 30px;
+  padding: 10px 20px;
+  border-radius: 20px;
 `;
 
 const Input = ({ placeholder, value, onChange, onSubmit }) => (
