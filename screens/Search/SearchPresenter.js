@@ -5,7 +5,7 @@ import Input from '../../components/Search/Input';
 import Vertical from '../../components/Vertical';
 
 export default ({ movies, shows, onChange, keyword, onSubmit }) => (
-  <ScrollContainer>
+  <ScrollContainer loading={false} refreshFn={onSubmit}>
     <Input placeholder={'Write a keyword'} onChange={onChange} value={keyword} onSubmit={onSubmit}></Input>
     {movies.length !== 0 && (
       <HorizontalSlider title={'Movie results'}>
