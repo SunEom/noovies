@@ -1,15 +1,9 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import ScrollContainer from '../../components/ScorllContainer';
 import Input from '../../components/Search/Input';
 import Vertical from '../../components/Vertical';
 
-const Container = styled.ScrollView`
-  background-color: black;
-`;
-
-const Text = styled.Text``;
 export default ({ movies, shows, onChange, keyword, onSubmit }) => (
   <ScrollContainer>
     <Input placeholder={'Write a keyword'} onChange={onChange} value={keyword} onSubmit={onSubmit}></Input>
