@@ -20,7 +20,6 @@ export default () => {
     const [topRated, topRatedError] = await tvApi.topRated();
     const [popular, popularError] = await tvApi.popular();
     const [thisWeek, thisWeekError] = await tvApi.thisWeek();
-    console.log('topRated', topRated);
 
     setShows({
       loading: false,
