@@ -8,6 +8,8 @@ import ScrollContainer from '../../components/ScorllContainer';
 import SwiperSlider from '../../components/SwiperSlider';
 import Vertical from '../../components/Vertical';
 
+const Container = styled.View``;
+
 export default ({ loading, popular, topRated, today, thisWeek }) => (
   <ScrollContainer loading={loading}>
     <SwiperSlider>
@@ -23,16 +25,22 @@ export default ({ loading, popular, topRated, today, thisWeek }) => (
         />
       ))}
     </SwiperSlider>
-    <HorizontalSlider title={'Top Rated'}>
-      {topRated.map((show) => (
-        <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
-      ))}
-    </HorizontalSlider>
-    <HorizontalSlider title={'This Week'}>
-      {thisWeek.map((show) => (
-        <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
-      ))}
-    </HorizontalSlider>
+
+    <Container>
+      <HorizontalSlider title={'Top Rated'}>
+        {topRated.map((show) => (
+          <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
+        ))}
+      </HorizontalSlider>
+    </Container>
+    <Container>
+      <HorizontalSlider title={'This Week'}>
+        {thisWeek.map((show) => (
+          <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
+        ))}
+      </HorizontalSlider>
+    </Container>
+
     <List title={'Airing Today'}>
       {today.map((show) => (
         <Horizontal key={show.id} id={show.id} poster={show.poster_path} title={show.name} overview={show.overview} />

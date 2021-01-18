@@ -1,17 +1,25 @@
 import React from 'react';
-import { ActivityIndicator, ScrollView } from 'react-native';
+import { ActivityIndicator, Dimensions, ScrollView, View } from 'react-native';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/native';
+
+const Container = styled.View`
+  flex: 1;
+`;
+
+const HEIGHT = Dimensions.get('screen').height / 2;
 
 const ScrollContainer = ({ loading, children }) => (
-  <ScrollView
-    style={{ backgroundColor: 'black' }}
-    contentContainerStyle={{
-      flex: 1,
-      justifyContent: loading ? 'center' : 'flex-start',
-    }}
-  >
-    {loading ? <ActivityIndicator color="white" size="small" /> : children}
-  </ScrollView>
+  <Container>
+    <ScrollView
+      style={{ backgroundColor: 'black' }}
+      contentContainerStyle={{
+        justifyContent: loading ? 'center' : 'flex-start',
+      }}
+    >
+      {loading ? <ActivityIndicator style={{ height: HEIGHT }} color="white" size="small" /> : children}
+    </ScrollView>
+  </Container>
 );
 
 ScrollContainer.propTypes = {
