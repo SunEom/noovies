@@ -8,6 +8,7 @@ export default ({
     params: { id, title, backgroundImage, poster, votes, overview },
   },
 }) => {
+  const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState({
     title,
     backgroundImage,
@@ -26,6 +27,7 @@ export default ({
       overview: getMovie.overview,
       votes: getMovie.vote_average,
     });
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -34,5 +36,5 @@ export default ({
   React.useLayoutEffect(() => {
     navigation.setOptions({ title });
   });
-  return <DetailPresenter movie={movie} />;
+  return <DetailPresenter movie={movie} loading={loading} />;
 };

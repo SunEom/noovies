@@ -55,7 +55,7 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({ movie }) => (
+export default ({ movie, loading }) => (
   <ScrollContainer loading={false}>
     <>
       <Header>
@@ -75,6 +75,7 @@ export default ({ movie }) => (
             <DataValue>{movie.overview}</DataValue>
           </>
         )}
+        {loading && <ActivityIndicator style={{ marginTop: 40 }} color="white" size="small" />}
       </Data>
     </>
   </ScrollContainer>
