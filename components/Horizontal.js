@@ -35,10 +35,11 @@ const ReleaseDate = styled.Text`
   font-size: 12px;
 `;
 
-const Horizontal = ({ id, poster, title, overview, releaseDate, backgroundImage }) => {
+const Horizontal = ({ id, poster, title, overview, releaseDate, backgroundImage, isTv = false }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate('Detail', {
+      isTv,
       id,
       title,
       poster,
@@ -69,6 +70,7 @@ Horizontal.propTypes = {
   releaseDate: PropTypes.string,
   overview: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
+  isTv: PropTypes.bool,
 };
 
 export default Horizontal;

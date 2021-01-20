@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import Poster from './Poster';
 import Votes from './Votes';
-import { TouchableOpacity } from 'react-native';
+import { ProgressViewIOSComponent, TouchableOpacity } from 'react-native';
 import { trimText } from '../utils';
 import { useNavigation } from '@react-navigation/native';
 
@@ -18,7 +18,7 @@ const Title = styled.Text`
   margin: 10px 0px 5px 0px;
 `;
 
-const Vertical = ({ id, poster, title, votes, overview, backgroundImage }) => {
+const Vertical = ({ id, poster, title, votes, overview, backgroundImage, isTv = false }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate('Detail', {
@@ -28,6 +28,7 @@ const Vertical = ({ id, poster, title, votes, overview, backgroundImage }) => {
       votes,
       overview,
       backgroundImage,
+      isTv,
     });
   };
 
@@ -49,6 +50,7 @@ Vertical.proptypes = {
   votes: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
+  isTv: PropTypes.bool,
 };
 
 export default Vertical;
