@@ -5,6 +5,7 @@ import { apiImage } from '../../API';
 import ScrollContainer from '../../components/ScrollContainer';
 import Poster from '../../components/Poster';
 import Votes from '../../components/Votes';
+import { formatDate } from '../../utils';
 
 const BG = styled.Image`
   width: 100%;
@@ -43,6 +44,7 @@ const Data = styled.View`
 `;
 
 const DataName = styled.Text`
+  margin-top: 30px;
   color: white;
   opacity: 0.8;
   font-weight: 800;
@@ -76,6 +78,18 @@ export default ({ result, loading }) => (
           </>
         )}
         {loading && <ActivityIndicator style={{ marginTop: 40 }} color="white" size="small" />}
+        {result.spoken_languages && (
+          <>
+            <DataName>Language</DataName>
+            <DataValue>{result.spoken_languages.map((l) => l.name)}</DataValue>
+          </>
+        )}
+        {result.release_date && (
+          <>
+            <DataName>Release Date</DataName>
+            <DataValue>{formatDate(result.release_date)}</DataValue>
+          </>
+        )}
       </Data>
     </>
   </ScrollContainer>
