@@ -35,7 +35,7 @@ const ReleaseDate = styled.Text`
   font-size: 12px;
 `;
 
-const Horizontal = ({ id, poster, title, overview, releaseDate }) => {
+const Horizontal = ({ id, poster, title, overview, releaseDate, backgroundImage }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
     navigation.navigate('Detail', {
@@ -44,6 +44,7 @@ const Horizontal = ({ id, poster, title, overview, releaseDate }) => {
       poster,
       overview,
       releaseDate,
+      backgroundImage,
     });
   };
 
@@ -67,6 +68,7 @@ Horizontal.propTypes = {
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string,
   overview: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
 };
 
 export default Horizontal;

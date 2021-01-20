@@ -31,7 +31,15 @@ export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
     <Container>
       <HorizontalSlider title={'Popular Movies'}>
         {popular.map((movie) => (
-          <Vertical key={movie.id} id={movie.id} poster={movie.poster_path} title={movie.title} votes={movie.vote_average} />
+          <Vertical
+            key={movie.id}
+            id={movie.id}
+            poster={movie.poster_path}
+            title={movie.title}
+            votes={movie.vote_average}
+            backgroundImage={movie.backdrop_path}
+            overview={movie.overview}
+          />
         ))}
       </HorizontalSlider>
 
@@ -42,6 +50,7 @@ export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
             id={movie.id}
             poster={movie.poster_path}
             title={movie.title}
+            backgroundImage={movie.backdrop_path}
             releaseDate={movie.release_date}
             overview={movie.overview}
           />
