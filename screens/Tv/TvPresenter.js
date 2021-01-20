@@ -4,7 +4,7 @@ import Horizontal from '../../components/Horizontal';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import List from '../../components/List';
 import Slide from '../../components/Movies/Slide';
-import ScrollContainer from '../../components/ScorllContainer';
+import ScrollContainer from '../../components/ScrollContainer';
 import SwiperSlider from '../../components/SwiperSlider';
 import Vertical from '../../components/Vertical';
 

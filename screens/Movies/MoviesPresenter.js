@@ -6,7 +6,7 @@ import Slide from '../../components/Movies/Slide';
 import Title from '../../components/Title';
 import Vertical from '../../components/Vertical';
 import Horizontal from '../../components/Horizontal';
-import ScrollContainer from '../../components/ScorllContainer';
+import ScrollContainer from '../../components/ScrollContainer';
 import HorizontalSlider from '../../components/HorizontalSlider';
 import List from '../../components/List';
 import SwiperSlider from '../../components/SwiperSlider';

@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalSlider from '../../components/HorizontalSlider';
-import ScrollContainer from '../../components/ScorllContainer';
+import ScrollContainer from '../../components/ScrollContainer';
 import Input from '../../components/Search/Input';
 import Vertical from '../../components/Vertical';
 
