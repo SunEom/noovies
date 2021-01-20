@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { movieApi } from '../../API';
 import DetailPresenter from './DetailPresenter';
 
 export default ({
