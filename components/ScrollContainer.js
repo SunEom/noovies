@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Dimensions, RefreshControl, ScrollView, View } from 'react-native';
+import { ActivityIndicator, Dimensions, RefreshControl, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import { useState } from 'react/cjs/react.development';
