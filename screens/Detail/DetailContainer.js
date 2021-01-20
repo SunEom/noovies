@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { movieApi } from '../../API';
+import { movieApi, tvApi } from '../../API';
 import DetailPresenter from './DetailPresenter';
 
 export default ({
   navigation,
   route: {
-    params: { id, title, backgroundImage, poster, votes, overview },
+    params: { isTv, id, title, backgroundImage, poster, votes, overview },
   },
 }) => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,11 @@ export default ({
   });
 
   const getData = async () => {
-    const [getMovie, getMovieError] = await movieApi.movie(id);
+    if (isTv) {
+      const [getMovie, getMovieError] = await tvApi.show(id);
+    } else {
+      const [getMovie, getMovieError] = await movieApi.movie(id);
+    }
     setMovie({
       ...getMovie,
       title: getMovie.title,
