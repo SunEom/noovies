@@ -55,24 +55,24 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({ movie, loading }) => (
+export default ({ result, loading }) => (
   <ScrollContainer loading={false}>
     <>
       <Header>
-        <BG source={{ uri: apiImage(movie.backgroundImage, '-') }} />
+        <BG source={{ uri: apiImage(result.backgroundImage, '-') }} />
         <Container>
-          <Poster url={movie.poster} />
+          <Poster url={result.poster} />
           <Info>
-            <Title>{movie.title}</Title>
-            {movie.votes && <Votes votes={movie.votes} />}
+            <Title>{result.title}</Title>
+            {result.votes && <Votes votes={result.votes} />}
           </Info>
         </Container>
       </Header>
       <Data>
-        {movie.overview && (
+        {result.overview && (
           <>
             <DataName>Overview</DataName>
-            <DataValue>{movie.overview}</DataValue>
+            <DataValue>{result.overview}</DataValue>
           </>
         )}
         {loading && <ActivityIndicator style={{ marginTop: 40 }} color="white" size="small" />}
