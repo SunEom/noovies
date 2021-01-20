@@ -8,7 +8,7 @@ const { height: HEIGHT } = Dimensions.get('window');
 const Container = styled.View`
   margin-top: 10px;
   width: 100%;
-  height: ${HEIGHT / 4}px;
+  height: ${HEIGHT / 3}px;
   margin-bottom: 50px;
 `;
 
