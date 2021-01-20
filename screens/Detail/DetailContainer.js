@@ -34,5 +34,5 @@ export default ({
   React.useLayoutEffect(() => {
     navigation.setOptions({ title });
   });
-  return <DetailPresenter {...movie} />;
+  return <DetailPresenter movie={movie} />;
 };
