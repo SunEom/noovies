@@ -1,5 +1,5 @@
 import React from 'react';
-import { PanResponder, Dimensions } from 'react-native';
+import { PanResponder, Dimensions, Animated } from 'react-native';
 import styled from 'styled-components/native';
 import { apiImage } from '../../API';
 
@@ -12,12 +12,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Card = styled.View`
-  top: 50px;
-  height: ${HEIGHT / 1.5}px;
-  width: 90%;
-  position: absolute;
-`;
+const Card = styled.View``;
 
 const Poster = styled.Image`
   border-radius: 20px;
@@ -25,20 +20,31 @@ const Poster = styled.Image`
   height: 100%;
 `;
 
+const styles = {
+  top: 50,
+  height: HEIGHT / 1.5,
+  width: '90%',
+  position: 'absolute',
+};
+
 export default ({ results }) => {
+  const position = new Animated.ValueXY();
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (evt, { dx }) => {
-      console.log(dx);
+    onPanResponderMove: (evt, { dx, dy }) => {
+      position.setValue({ x: dx, y: dy });
     },
   });
-  console.log(panResponder);
   return (
     <Container>
       {results.reverse().map((result) => (
-        <Card ley={result.id} {...panResponder.panHandlers}>
+        <Animated.View
+          style={{ ...styles, transform: [...position.getTranslateTransform()] }}
+          key={result.id}
+          {...panResponder.panHandlers}
+        >
           <Poster source={{ uri: apiImage(result.poster_path) }} />
-        </Card>
+        </Animated.View>
       ))}
     </Container>
   );
