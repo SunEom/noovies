@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Dimensions } from 'react-native';
+import { ActivityIndicator, Dimensions, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { apiImage } from '../../API';
 import ScrollContainer from '../../components/ScrollContainer';
@@ -58,7 +58,7 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({ result, loading }) => (
+export default ({ openBrowser, result, loading }) => (
   <ScrollContainer loading={false}>
     <>
       <Header>
@@ -121,6 +121,14 @@ export default ({ result, loading }) => (
             <DataValue>
               {result.number_of_seasons} / {result.number_of_episodes}{' '}
             </DataValue>
+          </>
+        )}
+        {result.imdb_id && (
+          <>
+            <DataName>Links</DataName>
+            <TouchableOpacity onPress={() => openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)}>
+              <DataValue>IMDB Page</DataValue>
+            </TouchableOpacity>
           </>
         )}
       </Data>
