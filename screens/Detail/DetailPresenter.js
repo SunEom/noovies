@@ -6,6 +6,7 @@ import ScrollContainer from '../../components/ScrollContainer';
 import Poster from '../../components/Poster';
 import Votes from '../../components/Votes';
 import { formatDate } from '../../utils';
+import Link from '../../components/Detail/Link';
 
 const BG = styled.Image`
   width: 100%;
@@ -126,9 +127,7 @@ export default ({ openBrowser, result, loading }) => (
         {result.imdb_id && (
           <>
             <DataName>Links</DataName>
-            <TouchableOpacity onPress={() => openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)}>
-              <DataValue>IMDB Page</DataValue>
-            </TouchableOpacity>
+            <Link icon={'imdb'} onPress={() => openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)} text={'IMDB Page'}></Link>
           </>
         )}
       </Data>
