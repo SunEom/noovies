@@ -118,7 +118,7 @@ export default ({ openBrowser, result, loading }) => (
         ) : null}
         {result.number_of_episodes ? (
           <>
-            <DataName># of Episodes</DataName>
+            <DataName>Seasons / Episodes</DataName>
             <DataValue>
               {result.number_of_seasons} / {result.number_of_episodes}{' '}
             </DataValue>
