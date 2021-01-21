@@ -69,7 +69,7 @@ Horizontal.propTypes = {
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string,
   overview: PropTypes.string.isRequired,
-  backgroundImage: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string,
   isTv: PropTypes.bool,
 };
 
