@@ -14,7 +14,7 @@ const Container = styled.View`
 
 const Card = styled.View`
   top: 50px;
-  height: ${HEIGHT / 1.5};
+  height: ${HEIGHT / 1.5}px;
   width: 90%;
   position: absolute;
 `;
