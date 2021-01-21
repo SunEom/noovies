@@ -1,17 +1,38 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
+import { apiImage } from '../../API';
 
-const Container = styled.View``;
+const { width: WIDTH, height: HEIGHT } = Dimensions.get('window');
 
-const Card = styled.View``;
+const Container = styled.View`
+  padding-top: 50px;
+  flex: 1;
+  background-color: black;
+  align-items: center;
+`;
 
-const Poster = styled.Image``;
+const Card = styled.View`
+  top: 50px;
+  height: ${HEIGHT / 1.5};
+  width: 90%;
+  position: absolute;
+`;
+
+const Poster = styled.Image`
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+`;
 
 export default ({ results }) => {
   return (
-    <View>
-      <Text>{results.length}</Text>
-    </View>
+    <Container>
+      {results.reverse().map((result) => (
+        <Card ley={result.id}>
+          <Poster source={{ uri: apiImage(result.poster_path) }} />
+        </Card>
+      ))}
+    </Container>
   );
 };
