@@ -17,7 +17,7 @@ export default ({ movies, shows, onChange, keyword, onSubmit }) => (
     {shows.length !== 0 && (
       <HorizontalSlider title={'TV results'}>
         {shows.map((show) => (
-          <Vertical key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
+          <Vertical isTv={true} key={show.id} id={show.id} poster={show.poster_path} title={show.name} votes={show.vote_average} />
         ))}
       </HorizontalSlider>
     )}
