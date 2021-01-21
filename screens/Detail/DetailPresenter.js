@@ -41,6 +41,7 @@ const Title = styled.Text`
 const Data = styled.View`
   padding: 0px 30px;
   margin-top: 50px;
+  padding-bottom: 80px;
 `;
 
 const DataName = styled.Text`
@@ -88,6 +89,38 @@ export default ({ result, loading }) => (
           <>
             <DataName>Release Date</DataName>
             <DataValue>{formatDate(result.release_date)}</DataValue>
+          </>
+        )}
+        {result.status && (
+          <>
+            <DataName>Status</DataName>
+            <DataValue>{result.status}</DataValue>
+          </>
+        )}
+        {result.runtime && (
+          <>
+            <DataName>Runtime</DataName>
+            <DataValue>{result.runtime} minutes</DataValue>
+          </>
+        )}
+        {result.first_air_date && (
+          <>
+            <DataName>First Air Date</DataName>
+            <DataValue>{formatDate(result.first_air_date)}</DataValue>
+          </>
+        )}
+        {result.genres && (
+          <>
+            <DataName>Genres</DataName>
+            <DataValue>{result.genres.map((g, index) => (index + 1 === result.genres.length ? g.name : `${g.name}, `))}</DataValue>
+          </>
+        )}
+        {result.number_of_episodes && (
+          <>
+            <DataName># of Episodes</DataName>
+            <DataValue>
+              {result.number_of_seasons} / {result.number_of_episodes}{' '}
+            </DataValue>
           </>
         )}
       </Data>
