@@ -38,7 +38,7 @@ export default ({ results }) => {
       position.setValue({ x: dx, y: dy });
     },
     onPanResponderRelease: (evt, { dx, dy }) => {
-      if (dx >= 250) {
+      if (dx >= 150) {
         //discard to the right
         Animated.spring(position, {
           toValue: {
@@ -47,7 +47,7 @@ export default ({ results }) => {
           },
           useNativeDriver: true,
         }).start(nextCard);
-      } else if (dx <= -250) {
+      } else if (dx <= -150) {
         //discard to the left
         Animated.spring(position, {
           toValue: {
@@ -69,18 +69,18 @@ export default ({ results }) => {
   });
 
   const rotationValues = position.x.interpolate({
-    inputRange: [-150, 0, 150],
+    inputRange: [-200, 0, 200],
     outputRange: ['-5deg', '0deg', '5deg'],
     extrapolate: 'clamp',
   });
 
   const secondCardOpacity = position.x.interpolate({
-    inputRange: [-150, 0, 150],
+    inputRange: [-200, 0, 200],
     outputRange: [1, 0.2, 1],
   });
 
   const secondCardScale = position.x.interpolate({
-    inputRange: [-150, 0, 150],
+    inputRange: [-200, 0, 200],
     outputRange: [1, 0.8, 1],
     extrapolate: 'clamp',
   });
