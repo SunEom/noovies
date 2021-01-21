@@ -42,6 +42,7 @@ export default ({ results }) => {
           x: 0,
           y: 0,
         },
+        useNativeDriver: true,
       }).start();
     },
   });
