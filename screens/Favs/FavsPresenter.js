@@ -47,13 +47,19 @@ export default ({ results }) => {
     },
   });
 
+  const rotationValues = position.x.interpolate({
+    inputRange: [-200, 0, 200],
+    outputRange: ['-5deg', '0deg', '5deg'],
+    extrapolate: 'clamp',
+  });
+
   return (
     <Container>
-      {results.reverse().map((result, index) => {
+      {results.map((result, index) => {
         if (index === topIndex) {
           return (
             <Animated.View
-              style={{ ...styles, zIndex: 1, transform: [...position.getTranslateTransform()] }}
+              style={{ ...styles, zIndex: 1, transform: [{ rotate: rotationValues }, ...position.getTranslateTransform()] }}
               key={result.id}
               {...panResponder.panHandlers}
             >
@@ -62,7 +68,7 @@ export default ({ results }) => {
           );
         }
         return (
-          <Animated.View style={{ ...styles }} key={result.id} {...panResponder.panHandlers}>
+          <Animated.View style={{ ...styles, zIndex: -index }} key={result.id} {...panResponder.panHandlers}>
             <Poster source={{ uri: apiImage(result.poster_path) }} />
           </Animated.View>
         );
